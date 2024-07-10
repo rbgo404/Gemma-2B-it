@@ -6,14 +6,14 @@ class InferlessPythonModel:
     def initialize(self):
         repo_id = "google/gemma-2b-it" # Specify the model repository 
         HF_TOKEN = os.getenv("HF_TOKEN")  # Access Hugging Face token from environment variable
-        # NFS_VOLUME = os.getenv("NFS_VOLUME")
+        NFS_VOLUME = os.getenv("NFS_VOLUME")
 
-        NFS_VOLUME = "/var/nfs-mount/GEMMA"
-        if os.path.exists(NFS_VOLUME) == False :
+        if os.path.exists(NFS_VOLUME+"generation_config.json") == False :
             model_dir = snapshot_download(
                 repo_id,
                 local_dir=NFS_VOLUME,
-            )
+                token=HF_TOKEN
+                )
         
         # Define sampling parameters for model generation
         self.sampling_params = SamplingParams(temperature=0.7, top_p=0.95, max_tokens=128)

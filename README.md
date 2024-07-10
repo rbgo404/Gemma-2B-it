@@ -24,7 +24,7 @@ Next, provide a suitable name for your custom runtime and proceed by uploading t
 ### Add Your Hugging Face Access Token
 Go into the `inferless.yaml` and replace `<hugging_face_token>` with your hugging face access token. Make sure to check the repo is private to protect your hugging face token.
 
-### Add Your NFS Inferless Volumes
+### Add Your Inferless NFS Volumes Path
 Go into the `inferless.yaml` and replace `<your_nfs_volume>` with your NFS volume mount path. Make sure to check the repo is private to protect your NFS volume mount path.
 
 ### Import the Model in Inferless
@@ -76,7 +76,6 @@ def infer(self, inputs):
 ```python
 def finalize(self):
     self.llm = None
-    self.tokenizer = None
 ```
 
 For more information refer to the [Inferless docs](https://docs.inferless.com/).
