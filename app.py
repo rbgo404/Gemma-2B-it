@@ -1,4 +1,5 @@
 import os
+import sys
 
 class InferlessPythonModel:
     def initialize(self):
@@ -11,6 +12,7 @@ class InferlessPythonModel:
         # result_output = [output.outputs[0].text for output in result]
         
         # Return a dictionary containing the result
+        sys.exit()
         return
 
     def finalize(self):
